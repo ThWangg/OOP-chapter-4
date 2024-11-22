@@ -1,6 +1,5 @@
-public class Circle{
+public class Circle extends Shape{
     private double radius = 1.0;
-    private String color = "red";
 
     public Circle(){
     }
@@ -9,9 +8,9 @@ public class Circle{
         this.radius = radius;
     }
 
-    public Circle(double radius, String color){
+    public Circle(double radius, String color, boolean filled){
+        super(color, filled);
         this.radius = radius;
-        this.color = color;
     }
 
     public double getRadius(){
@@ -22,19 +21,15 @@ public class Circle{
         this.radius = radius;
     }
 
-    public String getColor(){
-        return color;
-    }
-
-    public void setColor(String color){
-        this.color = color;
-    }
-
     public double getArea(){
         return Math.PI * radius * radius;
     }
 
+    public double getPerimeter(){
+        return 2 * Math.PI * radius;
+    }
+
     public String toString(){
-        return "Circle[radius = " + radius + ", color = " + color + "]";
+        return "Circle[" + super.toString() + ", radius=" + radius + "]";
     }
 }
